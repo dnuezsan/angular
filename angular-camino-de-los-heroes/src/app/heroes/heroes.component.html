@@ -1,8 +1,36 @@
-<h2>{{heroe.nombre| uppercase}} Detalles</h2>
+<!-- <h2>{{heroe.nombre| uppercase}} Detalles</h2>
 <div>
     <span>id: </span>{{heroe.id}}
 </div>
 <div>
 <label for="nombre">Nombre del Héroe:</label>
+con los parentesis se hace doble binding
 <input id="nombre" [(ngModel)]="heroe.nombre" placeholder="nombre">
+</div> -->
+<div>
+    <label for="nuevo-heroe">Nombre heroe: </label>
+    <input id="nuevo-heroe" #nombreHeroe />
+
+    <button type="button" class="aniadirBoton" (click)="aniadir(nombreHeroe.value); nombreHeroe.value=''">
+        Añadir heroe
+    </button>
 </div>
+
+<h2>Mis heroes</h2>
+<ul class="heroes">
+    <li *ngFor="let heroe of heroes">
+        <!-- <button [class.selected]="heroe===heroeElegido" type="button" (click)="seleccion(heroe)"> -->
+            <a routerLink="/detalle/{{heroe.id}}">
+                <span class="badge">{{heroe.id}}</span> {{heroe.nombre}}
+            </a>
+            <button type="button" class="borrar" title="borrar heroe" (click)="borrar(heroe)">x</button>
+       <!-- </button> -->
+    </li>
+</ul>
+
+
+
+<!-- La variable heroe de la clase "detalles-heroe" se iguala con la variable heroeElegido de "heroes"
+para poder usarla en esta clase pues la variable heroe no existe. Ambas han de ser del mismo tipo.
+De esta manera, el componente cambia sus variables 'heroe' por heroeElegido -->
+<!-- <app-detalles-heroe [heroe]="heroeElegido"></app-detalles-heroe> -->

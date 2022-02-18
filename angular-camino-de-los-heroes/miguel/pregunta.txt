@@ -1,0 +1,12 @@
+Preguntar por el return de manejarerror() en src/app/heroeServicio
+
+private manejarError<T>(operacion = 'operacion', resultado?: T){
+    return (error:any): Observable<T> =>{
+      
+      console.error(error);
+
+      this.log(`${operacion} failed: ${error.mensaje}`);
+
+      return of (resultado as T);
+    };
+  }

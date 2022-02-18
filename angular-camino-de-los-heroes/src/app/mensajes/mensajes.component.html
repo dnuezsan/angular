@@ -1,0 +1,9 @@
+<!-- la primera es el servicio de mensajes y el segundo la variable array -->
+<div *ngIf="mensajes.mensajes.length">
+    <h2>Mensajes</h2>
+    <button type="button" class="clear" (click)="mensajes.limpiar()">
+        limpiar mensajes
+    </button>
+    <!-- Puede parecer lioso. Se representa cada mensaje del array mensajes de la clase homónima -->
+    <div *ngFor="let mensaje of mensajes.mensajes">{{mensaje}}</div>
+</div>

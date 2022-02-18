@@ -1,0 +1,12 @@
+<div id="buscar-componente">
+    <label for="caja-busqueda">Búsqueda de heroe</label>
+    <input #cajaBusqueda id="caja-busqueda" (input)="buscar('#cajaBusqueda.value')"/>
+
+    <ul class="resultado-busqueda">
+        <li *ngFor="let heroe of heroes$ | async" >
+          <a routerLink="/detalles/{{heroe.id}}">
+            {{heroe.nombre}}
+          </a>
+        </li>
+      </ul>
+</div>
